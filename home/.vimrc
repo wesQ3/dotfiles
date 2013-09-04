@@ -20,7 +20,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'vim-perl/vim-perl'
 Bundle 'wesQ3/wombat.vim'
 
@@ -29,7 +29,7 @@ if has("gui_running")
    set guioptions=i
    set cursorline
    set nomousehide
-   colorscheme wombat 
+   colorscheme wombat
    if has('win32')
       set guifont=Consolas:h8
    else
