@@ -20,6 +20,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
+Bundle 'scrooloose/syntastic'
 Bundle 'vim-perl/vim-perl'
 Bundle 'wesQ3/wombat.vim'
 
