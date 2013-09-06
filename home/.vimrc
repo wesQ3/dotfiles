@@ -11,8 +11,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "vundle bundles
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+Bundle 'kien/ctrlp.vim'
 Bundle 'danro/rename.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
@@ -83,10 +82,20 @@ else
    set undodir=~/.vim/undo
 endif
 
-"fuzzyfind? fuzzybind!
-nnoremap <C-Space> :FufFile<CR>
-nnoremap <Leader>b :FufBuffer<CR>
-nnoremap <Leader>f :FufFileWithCurrentBufferDir<CR>
+"file rifling
+function! DirCtrlP()
+   let g:ctrlp_working_path_mode = 0
+   CtrlP
+endfunction
+
+function! FileRelCtrlP()
+   let g:ctrlp_working_path_mode = 'c'
+   CtrlP
+endfunction
+
+nnoremap <C-Space> :call DirCtrlP()<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>f :call FileRelCtrlP()<CR>
 
 "swappin mah buffers!
 function! MarkWindowSwap()
