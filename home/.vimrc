@@ -127,4 +127,8 @@ map n nzz
 
 " try this out
 let perl_fold = 1
+let perl_nofold_packages = 1
+
+"syntastic
+let g:syntastic_perl_interpreter = '~/perl5/perlbrew/current/bin/perl'
 
