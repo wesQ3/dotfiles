@@ -95,6 +95,9 @@ function! FileRelCtrlP()
    CtrlP
 endfunction
 
+" set matcher location and size
+let g:ctrlp_match_window = 'top,order:ttb,min:5,max:30'
+
 nnoremap <C-Space> :call DirCtrlP()<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>f :call FileRelCtrlP()<CR>
@@ -104,10 +107,13 @@ nnoremap <Leader>c :CtrlPClearCache<CR>
 map N Nzz
 map n nzz
 
-" try this out
+" perl
 let perl_fold = 1
 let perl_nofold_packages = 1
 
 "syntastic
 let g:syntastic_perl_interpreter = '~/perl5/perlbrew/current/bin/perl'
+
+"fix vim thinking the : is part of the object key in js
+set iskeyword=@,48-57,_,192-255
 
