@@ -1,4 +1,3 @@
-set number
 set nocompatible
 filetype off
 filetype plugin on
@@ -11,6 +10,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "vundle bundles
+Bundle 'tpope/vim-sensible'
 Bundle 'kien/ctrlp.vim'
 Bundle 'danro/rename.vim'
 Bundle 'tpope/vim-surround'
@@ -39,18 +39,10 @@ if has("gui_running")
    endif
 endif
 
-set autoindent
-set wildmenu
+set number
 set mouse=a
-set backspace=2
 set ignorecase
 set smartcase
-set incsearch
-set hlsearch
-set ruler
-set laststatus=2
-set showcmd
-set encoding=utf-8
 inoremap jj <Esc>
 let mapleader = ","
 
