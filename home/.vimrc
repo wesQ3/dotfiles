@@ -18,13 +18,13 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-perl/vim-perl'
 Bundle 'wesQ3/wombat.vim'
 Bundle 'wesQ3/vim-windowswap'
+Bundle 'wesQ3/vim-matchit'
 
 if has("gui_running")
    " Remove Toolbar
