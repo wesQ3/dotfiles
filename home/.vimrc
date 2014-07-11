@@ -106,6 +106,8 @@ let perl_fold = 1
 let perl_nofold_packages = 1
 
 "syntastic
+let g:syntastic_enable_perl_checker = 1
+let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_perl_interpreter = '~/perl5/perlbrew/current/bin/perl'
 
 "fix vim thinking the : is part of the object key in js
