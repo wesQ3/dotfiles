@@ -4,27 +4,28 @@ filetype plugin on
 syntax enable
 
 "vundle your bundles
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 "vundle bundles
-Bundle 'tpope/vim-sensible'
-Bundle 'kien/ctrlp.vim'
-Bundle 'danro/rename.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/syntastic'
-Bundle 'vim-perl/vim-perl'
-Bundle 'wesQ3/wombat.vim'
-Bundle 'wesQ3/vim-windowswap'
-Bundle 'wesQ3/vim-matchit'
+Plugin 'tpope/vim-sensible'
+Plugin 'kien/ctrlp.vim'
+Plugin 'danro/rename.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'bling/vim-airline'
+Plugin 'scrooloose/syntastic'
+Plugin 'vim-perl/vim-perl'
+Plugin 'wesQ3/wombat.vim'
+Plugin 'wesQ3/vim-windowswap'
+Plugin 'wesQ3/vim-matchit'
+call vundle#end()
 
 if has("gui_running")
    " Remove Toolbar
