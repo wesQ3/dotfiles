@@ -92,9 +92,9 @@ endfunction
 " set matcher location and size
 let g:ctrlp_match_window = 'top,order:ttb,min:5,max:30'
 
-nnoremap <C-Space> :call DirCtrlP()<CR>
+nnoremap <Leader>f :call DirCtrlP()<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>f :call FileRelCtrlP()<CR>
+nnoremap <Leader>F :call FileRelCtrlP()<CR>
 nnoremap <Leader>c :CtrlPClearCache<CR>
 
 " center on search
