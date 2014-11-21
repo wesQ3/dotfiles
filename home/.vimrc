@@ -44,6 +44,7 @@ endif
 set number
 set mouse=a
 set ignorecase
+set wildignorecase
 set smartcase
 inoremap jj <Esc>
 let mapleader = ","
