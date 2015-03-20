@@ -11,7 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 
 "vundle bundles
 Plugin 'tpope/vim-sensible'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'danro/rename.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
