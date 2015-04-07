@@ -12,6 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 "vundle bundles
 Plugin 'tpope/vim-sensible'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'imkmf/ctrlp-branches'
 Plugin 'danro/rename.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -93,9 +94,14 @@ endfunction
 " set matcher location and size
 let g:ctrlp_match_window = 'top,order:ttb,min:5,max:30'
 
+let g:ctrlp_extensions = [
+   \ 'branches',
+   \ ]
+
 nnoremap <Leader>f :call DirCtrlP()<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>F :call FileRelCtrlP()<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>B :CtrlPBranches<CR>
 nnoremap <Leader>c :CtrlPClearCache<CR>
 
 " center on search
