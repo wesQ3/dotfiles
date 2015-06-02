@@ -28,6 +28,7 @@ Plugin 'wesQ3/vim-windowswap'
 Plugin 'wesQ3/vim-matchit'
 call vundle#end()
 
+colorscheme desert
 if has("gui_running")
    " Remove Toolbar
    set guioptions=i
