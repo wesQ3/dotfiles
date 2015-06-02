@@ -52,7 +52,7 @@ ZSH_THEME="wes"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.bash_aliases
+[[ -e $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
 
 # User configuration
 
