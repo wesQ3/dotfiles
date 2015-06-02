@@ -111,7 +111,7 @@ map n nzz
 " perl
 let perl_fold = 1
 let perl_nofold_packages = 1
-let perl_no_subprototype_error = 1
+let perl_sub_signatures = 1
 
 "fix vim thinking the : is part of the object key in js
 set iskeyword=@,48-57,_,192-255
