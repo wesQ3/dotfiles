@@ -150,3 +150,7 @@ endfunction
 for i in g:qs_enable_char_list
    execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
 endfor
+
+" filetypes
+au BufNewFile,BufRead *.tt.html set filetype=tt2html
+au BufNewFile,BufRead *.html.tt set filetype=tt2html
