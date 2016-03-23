@@ -54,7 +54,7 @@ set ignorecase
 set wildignorecase
 set smartcase
 inoremap jj <Esc>
-let mapleader = ","
+let mapleader = " "
 
 " set ; to : in command mode
 noremap : ;
