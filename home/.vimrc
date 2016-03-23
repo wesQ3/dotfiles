@@ -155,3 +155,15 @@ endfor
 " filetypes
 au BufNewFile,BufRead *.tt.html set filetype=tt2html
 au BufNewFile,BufRead *.html.tt set filetype=tt2html
+
+" start screen
+let g:startify_list_order = [
+   \ ['   Sessions'],
+   \ 'sessions',
+   \ ['   Most recently used files'],
+   \ 'files',
+   \ ['   Most recently used files in the current directory'],
+   \ 'dir',
+   \ ['   Bookmarks'],
+   \ 'bookmarks',
+   \ ]
