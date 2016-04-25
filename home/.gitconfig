@@ -1,0 +1,29 @@
+[color]
+	ui = auto
+[core]
+	autocrlf = off
+	fileMode = false
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)~%aN%Creset' --abbrev-commit --date=relative
+	ci = commit
+	st = status -s
+	co = checkout
+	fix = commit --amend --no-edit
+	amend = commit --amend
+	gg = grep --heading --break -n
+	ff = merge --ff-only @{u}
+	branches = branch -a
+	tags = tag
+	stashes = stash list
+	discard = checkout --
+[rerere]
+	enabled = 1
+	autoupdate = 1
+[push]
+	default = upstream
+[mailmap]
+	file = $HOME/.mailmap
+[log]
+	date = iso8601
+[blame]
+	date = format:%Y-%m-%d
