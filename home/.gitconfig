@@ -27,3 +27,11 @@
 	date = iso8601
 [blame]
 	date = format:%Y-%m-%d
+[rebase]
+	autostash = true
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
