@@ -22,7 +22,7 @@
 [push]
 	default = upstream
 [mailmap]
-	file = $HOME/.mailmap
+	file = ~/.mailmap
 [log]
 	date = iso8601
 [blame]
