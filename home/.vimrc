@@ -7,7 +7,7 @@ syntax enable
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 "vundle bundles
 Plugin 'tpope/vim-sensible'
@@ -40,11 +40,15 @@ if has("gui_running")
    set cursorline
    set nomousehide
    colorscheme wombat
-   if has('win32')
-      set guifont=Consolas:h8
+   if filereadable(expand('~/.vim/local/font.vim'))
+      source ~/.vim/local/font.vim
    else
-      set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 8
-      let g:airline_powerline_fonts = 1
+      if has('win32')
+         set guifont=Consolas:h8
+      else
+         set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 8
+         let g:airline_powerline_fonts = 1
+      endif
    endif
 endif
 
