@@ -107,8 +107,3 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-source ~/perl5/perlbrew/etc/bashrc
-# DBIC SQL Formatting
-export DBIC_TRACE_PROFILE=console
-
-alias homeshick="$HOME/.homesick/repos/homeshick/home/.homeshick"
