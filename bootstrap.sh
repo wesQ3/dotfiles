@@ -5,7 +5,7 @@ set -e # exit on errors
 # install packages
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install \
+sudo apt-get --no-install-recommends install \
    vim git zsh tmux \
    curl mtr tree htop
 
