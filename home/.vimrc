@@ -141,6 +141,7 @@ let g:qs_highlight_on_keys = [ 'f', 'F', 't', 'T' ]
 " filetypes
 au BufNewFile,BufRead *.tt.html set filetype=tt2html
 au BufNewFile,BufRead *.html.tt set filetype=tt2html
+au FileType gitrebase setlocal nomodeline
 
 " start screen
 let g:startify_list_order = [
