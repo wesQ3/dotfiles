@@ -31,10 +31,10 @@ fi
 
 # ohmyzsh
 # sh -c "$(curl --fail --silent --show-error --location https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-HS=$HOME/.homesick/repos/homeshick/bin/homeshick
-[ ! -d $HOME/.homesick/repos/oh-my-zsh ] && \
-   $HS clone --batch robbyrussell/oh-my-zsh
+[ ! -d $HOME/.oh-my-zsh ] && \
+   git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
+HS=$HOME/.homesick/repos/homeshick/bin/homeshick
 [ ! -d $HOME/.homesick/repos/dotfiles ] && \
    $HS clone --batch git@github.com:wesQ3/dotfiles.git
 $HS link --force
