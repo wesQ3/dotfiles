@@ -39,6 +39,12 @@ HS=$HOME/.homesick/repos/homeshick/bin/homeshick
    $HS clone --batch git@github.com:wesQ3/dotfiles.git
 $HS link --force
 
+# fonts
+$HS clone --batch git@github.com:wesQ3/powerline-fonts-wes.git
+$HS cd powerline-fonts-wes
+./install.sh
+cd $HOME
+
 chsh --shell /bin/zsh
 
 # vim
