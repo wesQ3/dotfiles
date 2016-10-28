@@ -156,3 +156,8 @@ let g:startify_list_order = [
    \ ['   Bookmarks'],
    \ 'bookmarks',
    \ ]
+
+" peek at syntax elements for colorscheming
+noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+         \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+         \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
