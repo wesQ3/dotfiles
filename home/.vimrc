@@ -136,6 +136,9 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
+" open splits more intuitively (for me)
+set splitright
+set splitbelow
 
 " only show quick-scope hints when moving
 let g:qs_highlight_on_keys = [ 'f', 'F', 't', 'T' ]
