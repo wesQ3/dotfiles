@@ -61,7 +61,7 @@ export PATH="/home/wes/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/b
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
 export DBIC_TRACE_PROFILE=console
-export LYNX_TEST_SERVER=localhost
+export LIVE_TEST_SERVER=localhost
 export DESTRUCTIVE_TESTS=1
 export SystemDrive=/
 export LYNX_DSN_PATH=/home/wes/code/sql.txt
