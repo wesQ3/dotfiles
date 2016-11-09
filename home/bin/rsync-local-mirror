@@ -1,7 +1,14 @@
 #!/bin/dash
 
-USER=wes
+USER=`whoami`
 IGNORELIST=/var/tmp/rsync-ignorelist
+
+. /home/$USER/.rsync-local-mirror.rc # . ~~ source
+
+if [ ! -e $BACKUP_DIR ]; then
+   >&2 echo "BACKUP_DIR does not exist. Did you define it it \$HOME/.rsync-local-mirror.rc?"
+   exit 1
+fi
 
 if [ ! -e $IGNORELIST ]; then
 wget https://raw.githubusercontent.com/wesQ3/rsync-homedir-excludes/master/rsync-homedir-excludes.txt \
@@ -9,5 +16,8 @@ wget https://raw.githubusercontent.com/wesQ3/rsync-homedir-excludes/master/rsync
 fi
 
 rsync -av -delete \
+   -n \
    --exclude-from=$IGNORELIST \
-   /home/$USER/ /media/$USER/dc5ca48c-808a-4d14-a01a-6f48cde04e04/backup/home/$USER
+   /home/$USER/ $BACKUP_DIR/home/$USER
+
+# vim: ft=sh
