@@ -11,7 +11,7 @@ if [ ! -e $BACKUP_DIR ]; then
 fi
 
 if [ ! -e $IGNORELIST ]; then
-wget https://raw.githubusercontent.com/wesQ3/rsync-homedir-excludes/master/rsync-homedir-excludes.txt \
+wget -q https://raw.githubusercontent.com/wesQ3/rsync-homedir-excludes/master/rsync-homedir-excludes.txt \
    -O $IGNORELIST
 fi
 
