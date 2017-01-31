@@ -31,5 +31,7 @@ export CIURL=http://ci.lan.mitsi.com
 export PATH="$HOME/.plenv/bin:$PATH"
 eval "$(plenv init -)"
 
+alias weather="curl wttr.in"
+
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
