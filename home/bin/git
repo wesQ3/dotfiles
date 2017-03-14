@@ -1,0 +1,75 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+$0 = 'git';
+
+my %commit = (
+   commit => 1,
+   ci     => 1,
+),
+
+my %checkout = (
+   checkout => 1,
+   co       => 1,
+);
+
+exec '/usr/bin/git' unless @ARGV;
+
+my ($precmd, $command, $args) = _parse_args(@ARGV);
+my @args = @$args;
+
+if ($commit{$command} && exists $args[0] && $args[0] =~ /^-a|^--all/) {
+   my @staged = grep /^M/, split /\0/, `git status -z`;
+   if (@staged) {
+      my @diff = `git diff --shortstat`;
+      if (@diff) {
+         print "There are staged changes, are you sure you want to commit all? (y/N) ";
+         chomp(my $answer = <STDIN>);
+         unless ($answer =~ /^y/i) {
+            exit 2;
+         }
+      }
+   }
+} elsif ($checkout{$command} && ( grep /^-b|^-B/, @args ) && ( grep /^origin\/(?:release|master)/, @args )) {
+   unshift @args, '--no-track';
+} elsif ($command eq 'grep' && -f '.git/info/grep-exclude') {
+
+   my @exclude;
+
+   open my $fh, '<', '.git/info/grep-exclude';
+   while (<$fh>) {
+      chomp;
+      next if m/^#/;
+      push @exclude, ":!$_";
+   }
+   close $fh;
+   if (1 == grep !m/^-/, @args) {
+      push @args, '--', ':./*', @exclude;
+   } else {
+      @args = ($args[0], '--', @args[1..$#args], @exclude)
+   }
+}
+
+exec '/usr/bin/git', @$precmd, $command, @args;
+
+sub _parse_args {
+   my @argv = @_;
+
+   my (@precmd, $cmd, @postcmd);
+
+   for my $arg (@argv) {
+      if (!$cmd) {
+         if ($arg =~ m/^-/) {
+            push @precmd, $arg
+         } else {
+            $cmd = $arg
+         }
+      } else {
+         push @postcmd, $arg
+      }
+   }
+
+   return \@precmd, $cmd, \@postcmd;
+}
