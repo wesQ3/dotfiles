@@ -19,6 +19,8 @@
 	tags = tag
 	stashes = stash list
 	discard = checkout --
+[diff]
+	submodule = log
 [rerere]
 	enabled = 1
 	autoupdate = 1
