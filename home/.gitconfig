@@ -19,6 +19,8 @@
 	tags = tag
 	stashes = stash list
 	discard = checkout --
+[grep]
+	fallbackToNoIndex = true
 [diff]
 	submodule = log
 [rerere]
