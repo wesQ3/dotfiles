@@ -34,6 +34,8 @@
 	date = format:%Y-%m-%d
 [rebase]
 	autostash = true
+[pull]
+	ff = only
 [transfer]
 	fsckobjects = true
 [fetch]
