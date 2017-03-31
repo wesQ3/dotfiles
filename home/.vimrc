@@ -13,6 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'imkmf/ctrlp-branches'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'danro/rename.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -165,3 +166,7 @@ let g:startify_list_order = [
 noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
          \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
          \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
