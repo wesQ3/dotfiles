@@ -25,6 +25,7 @@ export PATH="$HOME/.plenv/bin:$PATH"
 eval "$(plenv init -)"
 
 alias weather="curl wttr.in"
+alias ocr-screen='TEMPFILE=/tmp/$$.RANDOM.png && shutter -s -e -o $TEMPFILE && tesseract $TEMPFILE stdout'
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
