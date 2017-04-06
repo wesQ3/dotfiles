@@ -31,13 +31,13 @@ Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'Konfekt/FastFold'
 Plugin 'unblevable/quick-scope'
 Plugin 'mhinz/vim-startify'
-Plugin 'wincent/terminus'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'kana/vim-textobj-user'
 Plugin 'lucapette/vim-textobj-underscore'
 Plugin 'wesQ3/wombat.vim'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'wesQ3/vim-matchit'
+" Plugin 'wincent/terminus' " try this again when I upgrade ubuntu
 call vundle#end()
 
 colorscheme desert
