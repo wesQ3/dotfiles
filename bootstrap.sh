@@ -14,11 +14,22 @@ fi
 # generate keys
 if [ ! -e $HOME/.ssh/id_rsa ]; then
    ssh-keygen -t rsa -b 2048
+   cat ~/.ssh/id_rsa.pub
+   echo "\n\nGive me a GitHub 2FA token to add this to the keylist"
+   echo "You'll need your GitHub password as well"
+   echo "[blank] to add it yourself...\n\n"
+   read otp
+   if [ $otp ]; then
+      curl -i -u wesQ3 \
+         -H "X-GitHub-OTP: $otp" \
+         -H "Content-Type: application/json" \
+         --data "{\"title\":\"`cat /etc/hostname`-autogen\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" \
+         https://api.github.com/user/keys
+   else
+      echo Press a key to continue
+      read foo
+   fi
 fi
-echo "\n\nAdd this thing to github allowed keys\nhttps://github.com/settings/keys\n\n"
-cat ~/.ssh/id_rsa.pub
-echo "\n"
-read foo
 
 # plenv
 if [ ! -d $HOME/.plenv ]; then
