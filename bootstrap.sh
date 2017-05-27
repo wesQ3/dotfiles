@@ -2,12 +2,14 @@
 
 set -e # exit on errors
 
-# install packages
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get --no-install-recommends install \
-   vim git zsh tmux \
-   curl mtr tree htop
+# htop is frivolous; if it's installed then we've run before
+if ! dpkg -l | grep -q htop; then
+   sudo apt-get update
+   sudo apt-get upgrade
+   sudo apt-get --no-install-recommends install \
+      vim git zsh tmux \
+      curl mtr tree htop
+fi
 
 # generate keys
 if [ ! -e $HOME/.ssh/id_rsa ]; then
