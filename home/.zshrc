@@ -20,6 +20,9 @@ export PATH="/home/wes/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/b
 
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
 # use plenv
 export PATH="$HOME/.plenv/bin:$PATH"
 eval "$(plenv init -)"
