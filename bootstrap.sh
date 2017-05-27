@@ -53,9 +53,14 @@ HS=$HOME/.homesick/repos/homeshick/bin/homeshick
 $HS link --force
 
 # fonts
-$HS clone --batch git@github.com:wesQ3/powerline-fonts-wes.git
-$HS cd powerline-fonts-wes
-./install.sh
+echo "Install fonts? [blank] to skip:"
+read font
+if [ $font ]; then
+   $HS clone --batch git@github.com:wesQ3/powerline-fonts-wes.git
+   $HS cd powerline-fonts-wes
+   ./install.sh
+fi
+
 cd $HOME
 
 echo Setting local shell
