@@ -23,6 +23,7 @@
 	fallbackToNoIndex = true
 [diff]
 	submodule = log
+	algorithm = patience
 [rerere]
 	enabled = 1
 	autoupdate = 1
