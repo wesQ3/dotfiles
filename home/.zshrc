@@ -32,3 +32,5 @@ alias ocr-screen='TEMPFILE=/tmp/$$.RANDOM.png && shutter -s -e -o $TEMPFILE && t
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
