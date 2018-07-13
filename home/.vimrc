@@ -54,7 +54,7 @@ if has("gui_running")
       if has('win32')
          set guifont=Consolas:h8
       else
-         set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 8
+         set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 9
          let g:airline_powerline_fonts = 1
       endif
    endif
