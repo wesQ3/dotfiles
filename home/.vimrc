@@ -123,6 +123,7 @@ nnoremap <Leader>f :call DirCtrlP()<CR>
 nnoremap <Leader>F :call FileRelCtrlP()<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>B :CtrlPBranches<CR>
+nnoremap <Leader>p :CtrlP $HOME/.plenv/versions/5.26.1/lib/perl5/<CR>
 nnoremap <Leader>c :CtrlPClearCache<CR>
 
 " center on search
