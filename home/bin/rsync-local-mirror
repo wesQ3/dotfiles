@@ -15,6 +15,7 @@ wget -q https://raw.githubusercontent.com/wesQ3/rsync-homedir-excludes/master/rs
    -O $IGNORELIST
 fi
 
+mkdir -p $BACKUP_DIR/home/$USER
 rsync -av -delete \
    --exclude-from=$IGNORELIST \
    /home/$USER/ $BACKUP_DIR/home/$USER
