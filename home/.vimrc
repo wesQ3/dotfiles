@@ -59,7 +59,7 @@ if has("gui_running")
          let g:airline_powerline_fonts = 1
       endif
    endif
-   set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+   set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,eol:↲
    set showbreak=↪\ |"that trailing space is intentional
 endif
 
