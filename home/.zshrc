@@ -34,3 +34,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export ARDUINO_PATH=/usr/local/arduino
