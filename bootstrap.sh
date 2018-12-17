@@ -52,6 +52,11 @@ HS=$HOME/.homesick/repos/homeshick/bin/homeshick
    $HS clone --batch git@github.com:wesQ3/dotfiles.git
 $HS link --force
 
+# fzf fuzzy finding
+[ ! -f ~/.fzf.zsh ] && \
+   git clone git://github.com/junegunn/fzf.git $HOME/.fzf && \
+   $HOME/.fzf/install --no-update-rc
+
 # fonts
 echo "Install fonts? [blank] to skip:"
 read font
