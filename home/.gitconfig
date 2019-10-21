@@ -33,7 +33,7 @@
 [mailmap]
 	file = ~/.mailmap
 [log]
-	date = iso8601
+	date = format:%Y-%m-%d %H:%M:%S (%-I %p on a %A)
 [blame]
 	date = format:%Y-%m-%d
 [rebase]
