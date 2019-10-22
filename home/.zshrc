@@ -29,6 +29,7 @@ eval "$(plenv init -)"
 
 alias weather="curl wttr.in"
 alias ocr-screen='TEMPFILE=/tmp/$$.RANDOM.png && shutter -s -e -o $TEMPFILE && tesseract $TEMPFILE stdout'
+alias tldr='docker run --rm -it -v ~/.local/share/tldr/:/root/.tldr/ nutellinoit/tldr'
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
