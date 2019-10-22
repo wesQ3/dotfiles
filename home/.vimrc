@@ -162,16 +162,15 @@ au BufNewFile,BufRead *.html.tt set filetype=tt2html
 au FileType gitrebase setlocal nomodeline
 
 " start screen
-let g:startify_list_order = [
-   \ ['   Sessions'],
-   \ 'sessions',
-   \ ['   Most recently used files'],
-   \ 'files',
-   \ ['   Most recently used files in the current directory'],
-   \ 'dir',
-   \ ['   Bookmarks'],
-   \ 'bookmarks',
+let g:startify_lists = [
+   \ { 'type': 'sessions',  'header': ['   Sessions']},
+   \ { 'type': 'files',     'header': ['   Recently used files']},
+   \ { 'type': 'dir',       'header': ['   Recent in '. getcwd()] },
+   \ { 'type': 'bookmarks', 'header': ['   Bookmarks']},
+   \ { 'type': 'commands',  'header': ['   Commands']},
    \ ]
+
+let g:startify_bookmarks = [ '~/.vimrc', '~/.zshrc' ]
 
 " peek at syntax elements for colorscheming
 noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
