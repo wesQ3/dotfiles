@@ -112,6 +112,11 @@ function! FileRelCtrlP()
    CtrlP
 endfunction
 
+" ignore binaries
+let g:ctrlp_custom_ignore = {
+   \ 'file': '\v\.(exe|so|dll|gif|jpg|png|ico|bin|wav|msi)$',
+   \ }
+
 " set matcher location and size
 let g:ctrlp_match_window = 'top,order:ttb,min:5,max:30'
 
