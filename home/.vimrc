@@ -175,6 +175,8 @@ let g:startify_lists = [
    \ ]
 
 let g:startify_bookmarks = [ '~/.vimrc', '~/.zshrc' ]
+let g:startify_session_dir = '~/.vim/session'
+let g:startify_change_to_vcs_root = 1
 
 " peek at syntax elements for colorscheming
 noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
