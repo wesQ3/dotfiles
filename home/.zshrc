@@ -9,7 +9,7 @@ ZSH_THEME="wes"
 # ~/.oh-my-zsh/plugins/*
 # ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git docker docker-compose)
+plugins=(git docker docker-compose aws)
 
 source $ZSH/oh-my-zsh.sh
 [[ -e $HOME/.local-env.sh ]] && source $HOME/.local-env.sh
