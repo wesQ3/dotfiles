@@ -22,21 +22,26 @@ zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export MTR_OPTIONS="--curses"
 
-# use plenv
-export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init -)"
+if [ -d $HOME/.plenv/bin ]; then
+   export PATH="$HOME/.plenv/bin:$PATH"
+   eval "$(plenv init -)"
+fi
 
 alias weather="curl wttr.in"
-alias ocr-screen='TEMPFILE=/tmp/$$.RANDOM.png && shutter -s -e -o $TEMPFILE && tesseract $TEMPFILE stdout'
+alias ocr-screen='TEMPFILE=/tmp/$$.RANDOM.png && flameshot gui --path $TEMPFILE && tesseract $TEMPFILE stdout'
 alias tldr='docker run --rm -it -v ~/.local/share/tldr/:/root/.tldr/ nutellinoit/tldr'
 alias jsony="perl -MJSONY -MJSON -E'print encode_json(JSONY->new->load(shift @ARGV))'"
 alias ag="ag --pager='less -R'"
-alias saw='docker run --rm -it -v ~/.aws:/home/.aws tbrock/saw:v0.2.2'
+alias trim-clipboard="xsel -b | sed 's/  *$//' | xsel -b"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export ARDUINO_PATH=/usr/local/arduino
+test -d /usr/local/arduino && export ARDUINO_PATH=/usr/local/arduino
+# test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -d $HOME/code/flutter/bin && export PATH="$PATH:$HOME/code/flutter/bin"
+
