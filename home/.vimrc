@@ -1,5 +1,5 @@
 set nocompatible
-filetype off
+filetype on
 filetype plugin on
 syntax enable
 
@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'imkmf/ctrlp-branches'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/deoplete.nvim'
 Plugin 'danro/rename.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
@@ -33,6 +33,7 @@ Plugin 'hashivim/vim-terraform'
 Plugin 'juliosueiras/vim-terraform-completion'
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'udalov/kotlin-vim'
+Plugin 'kergoth/vim-bitbake'
 Plugin 'Konfekt/FastFold'
 Plugin 'unblevable/quick-scope'
 Plugin 'mhinz/vim-startify'
@@ -59,7 +60,7 @@ if has("gui_running")
       if has('win32')
          set guifont=Consolas:h8
       else
-         set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 9
+         set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 14
          let g:airline_powerline_fonts = 1
       endif
    endif
@@ -186,6 +187,15 @@ noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
          \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
          \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
+" deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option({
+   \ 'smart_case': v:true,
+   \ 'auto_complete_delay': 10,
+   \ })
+
+"syntastic
+let g:syntastic_python_checkers = ['python3']
+
+" dart / flutter
+let g:dart_style_guide = 2
