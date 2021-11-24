@@ -1,7 +1,5 @@
 set nocompatible
-filetype on
-filetype plugin on
-syntax enable
+filetype off
 
 "vundle your bundles
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -45,7 +43,10 @@ Plugin 'frioux/vim-lost'
 Plugin 'wesQ3/wombat.vim'
 Plugin 'wesQ3/vim-windowswap'
 Plugin 'wesQ3/vim-matchit'
+
 call vundle#end()
+filetype plugin on
+syntax enable
 
 colorscheme desert
 if has("gui_running")
