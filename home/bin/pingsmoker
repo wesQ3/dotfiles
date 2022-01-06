@@ -1,0 +1,26 @@
+#!/usr/bin/perl
+
+use 5.28.0; use warnings;
+$|++;
+use Net::Ping;
+
+my $host = shift @ARGV or die 'host is required';
+my $sleep_time = 30;
+my $p = Net::Ping->new;
+
+say "watching host $host";
+
+my $state = 'initial';
+my $when_changed = time;
+while (1) {
+   my $res = $p->ping($host) ? 'up' : 'down';
+
+   if ($state ne $res) {
+      my $elapsed = time - $when_changed;
+      say "$host is $res, was $state for $elapsed sec";
+      $state = $res;
+      $when_changed = time;
+   }
+
+   sleep $sleep_time;
+}
