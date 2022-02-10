@@ -20,7 +20,7 @@ export PATH="/home/wes/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/b
 
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export MTR_OPTIONS="--curses"
 
