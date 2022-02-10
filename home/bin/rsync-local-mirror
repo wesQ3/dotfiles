@@ -1,23 +1,30 @@
-#!/bin/dash
+#!/bin/sh
 
-USER=`whoami`
-IGNORELIST=/var/tmp/rsync-ignorelist
+set -e
 
-. /home/$USER/.rsync-local-mirror.rc # . ~~ source
+timemachine=/usr/local/bin/timemachine
+user=`whoami`
+ignorelist=/var/tmp/rsync-ignorelist
 
-if [ ! -e $BACKUP_DIR ]; then
-   >&2 echo "BACKUP_DIR does not exist. Did you define it it \$HOME/.rsync-local-mirror.rc?"
+. /home/$user/.rsync-local-mirror.rc # . ~~ source
+
+if [ ! -e $timemachine ]; then
+   >&2 echo "$timemachine not found; go get it at https://github.com/cytopia/linux-timemachine"
    exit 1
 fi
 
-if [ ! -e $IGNORELIST ]; then
-wget -q https://raw.githubusercontent.com/wesQ3/rsync-homedir-excludes/master/rsync-homedir-excludes.txt \
-   -O $IGNORELIST
+if [ ! -e $BACKUP_DIR ]; then
+   >&2 echo "BACKUP_DIR does not exist. Did you define it in \$HOME/.rsync-local-mirror.rc?"
+   exit 1
 fi
 
-mkdir -p $BACKUP_DIR/home/$USER
-rsync -av -delete \
-   --exclude-from=$IGNORELIST \
-   /home/$USER/ $BACKUP_DIR/home/$USER
+if [ ! -e $ignorelist ]; then
+wget -q https://raw.githubusercontent.com/wesQ3/rsync-homedir-excludes/master/rsync-homedir-excludes.txt \
+   -O $ignorelist
+fi
+
+$timemachine -v \
+   /home/$user/ $BACKUP_DIR \
+   -- --exclude-from=$ignorelist
 
 # vim: ft=sh
