@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# usage: curl $UG_URL | ./ug-text > output.tab
+
+pup --charset utf-8 --pre ".js-store attr{data-content}" \
+   | perl -MHTML::Entities -E 'say decode_entities(<>)' \
+   | jq '.store.page.data.tab_view.wiki_tab.content' \
+   | sed -r -e 's/\\r\\n/\n/g' -e 's/\[\/?tab\]|\[\/?ch\]//g' -e 's/^"|"$//g'
