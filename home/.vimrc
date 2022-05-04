@@ -134,8 +134,15 @@ nnoremap <Leader>f :call DirCtrlP()<CR>
 nnoremap <Leader>F :call FileRelCtrlP()<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>B :CtrlPBranches<CR>
-nnoremap <Leader>p :CtrlP $HOME/.plenv/versions/5.26.1/lib/perl5/<CR>
 nnoremap <Leader>c :CtrlPClearCache<CR>
+
+let g:current_plenv_ver = system("ls -1 ~/.plenv/versions | sort --reverse | head -1 | tr -d '\n'")
+if !v:shell_error && g:current_plenv_ver
+   nnoremap <expr> <Leader>p ':CtrlP ~/.plenv/versions/' . g:current_plenv_ver . '/lib/perl5/<CR>'
+else
+   nnoremap <Leader>p :echo 'No current perl at $HOME/.plenv ??'<CR>
+endif
+
 
 " center on search
 map N Nzz
