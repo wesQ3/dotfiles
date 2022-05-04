@@ -200,3 +200,7 @@ let g:syntastic_python_checkers = ['python3']
 
 " dart / flutter
 let g:dart_style_guide = 2
+
+"common fugitive cmds
+nnoremap <C-g> :Gsplit :<CR>
+nnoremap <C-b> :G blame<CR>
