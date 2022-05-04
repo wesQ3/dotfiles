@@ -15,7 +15,7 @@
 	fix = commit --amend --no-edit
 	amend = commit --amend
 	gg = grep --heading --break -n
-	ff = merge --ff-only @{u}
+	ff = merge --ff-only
 	branches = branch -a
 	tags = tag
 	stashes = stash list
