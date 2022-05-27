@@ -107,20 +107,10 @@ else
    set undodir=~/.vim/undo
 endif
 
-"file rifling
-function! DirCtrlP()
-   let g:ctrlp_working_path_mode = 0
-   CtrlP
-endfunction
-
-function! FileRelCtrlP()
-   let g:ctrlp_working_path_mode = 'c'
-   CtrlP
-endfunction
-
+" file rifling
 " ignore binaries
 let g:ctrlp_custom_ignore = {
-   \ 'file': '\v\.(exe|so|dll|gif|jpg|png|ico|bin|wav|msi)$',
+   \ 'file': '\v\.(exe|so|dll|gif|jpg|png|ico|bin|wav|msi|mp4|icns|woff2?)$',
    \ }
 
 " set matcher location and size
@@ -130,8 +120,8 @@ let g:ctrlp_extensions = [
    \ 'branches',
    \ ]
 
-nnoremap <Leader>f :call DirCtrlP()<CR>
-nnoremap <Leader>F :call FileRelCtrlP()<CR>
+nnoremap <Leader>f :CtrlPRoot<CR>
+nnoremap <Leader>F :CtrlPCurFile<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>B :CtrlPBranches<CR>
 nnoremap <Leader>c :CtrlPClearCache<CR>
