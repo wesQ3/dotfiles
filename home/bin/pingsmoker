@@ -17,10 +17,24 @@ while (1) {
 
    if ($state ne $res) {
       my $elapsed = time - $when_changed;
-      say "$host is $res, was $state for $elapsed sec";
+      my $say_time = format_time($elapsed);
+      say "$host is $res, was $state for $say_time";
       $state = $res;
       $when_changed = time;
    }
 
    sleep $sleep_time;
+}
+
+sub format_time {
+   my $elapsed = shift;
+   my ($days, $hours, $minutes) = map {int $_} (
+      $elapsed/(24*60*60),
+      $elapsed/(60*60),
+      $elapsed/(60),
+   );
+   return sprintf '%d sec (~%d days)', $elapsed, $days if $days;
+   return sprintf '%d sec (~%d hours)', $elapsed, $hours if $hours;
+   return sprintf '%d sec (~%d minutes)', $elapsed, $minutes if $minutes;
+   return "$elapsed sec";
 }
