@@ -9,8 +9,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 "vundle bundles
 Plugin 'tpope/vim-sensible'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'imkmf/ctrlp-branches'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'danro/rename.vim'
 Plugin 'tpope/vim-surround'
@@ -108,27 +108,13 @@ else
 endif
 
 " file rifling
-" ignore binaries
-let g:ctrlp_custom_ignore = {
-   \ 'file': '\v\.(exe|so|dll|gif|jpg|png|ico|bin|wav|msi|mp4|icns|woff2?)$',
-   \ }
 
-" set matcher location and size
-let g:ctrlp_match_window = 'top,order:ttb,min:5,max:30'
-
-let g:ctrlp_extensions = [
-   \ 'branches',
-   \ ]
-
-nnoremap <Leader>f :CtrlPRoot<CR>
-nnoremap <Leader>F :CtrlPCurFile<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>B :CtrlPBranches<CR>
-nnoremap <Leader>c :CtrlPClearCache<CR>
+nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 let g:current_plenv_ver = system("ls -1 ~/.plenv/versions | sort --reverse | head -1 | tr -d '\n'")
 if !v:shell_error && g:current_plenv_ver
-   nnoremap <expr> <Leader>p ':CtrlP ~/.plenv/versions/' . g:current_plenv_ver . '/lib/perl5/<CR>'
+   nnoremap <expr> <Leader>p ':FZF ~/.plenv/versions/' . g:current_plenv_ver . '/lib/perl5/<CR>'
 else
    nnoremap <Leader>p :echo 'No current perl at $HOME/.plenv ??'<CR>
 endif
