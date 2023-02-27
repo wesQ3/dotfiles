@@ -72,7 +72,11 @@ echo Setting local shell
 chsh --shell /bin/zsh
 
 # vim
-[ ! -d $HOME/.vim/bundle/Vundle.vim ] && \
-   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-mkdir -p $HOME/.vim/undo
-mkdir -p $HOME/.vim/swap
+vimdir=$HOME/.vim
+mkdir -p $vimdir/undo
+mkdir -p $vimdir/swap
+mkdir -p $vimdir/autoload
+if [ ! -d $vimdir/bundle/vim-plug ]; then
+   git clone https://github.com/junegunn/vim-plug.git $vimdir/bundle/vim-plug
+   ln -s $vimdir/bundle/vim-plug/plug.vim $vimdir/autoload/plug.vim
+fi

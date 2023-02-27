@@ -1,52 +1,49 @@
 set nocompatible
-filetype off
 
-"vundle your bundles
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" bootstrap plugin system
+set rtp+=~/.vim/bundle/vim-plug
+call plug#begin('~/.vim/bundle')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'junegunn/vim-plug'
 
-"vundle bundles
-Plugin 'tpope/vim-sensible'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'danro/rename.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-vinegar'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'vim-perl/vim-perl'
-Plugin 'elzr/vim-json'
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-Plugin 'hashivim/vim-terraform'
-Plugin 'juliosueiras/vim-terraform-completion'
-Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'udalov/kotlin-vim'
-Plugin 'kergoth/vim-bitbake'
-Plugin 'Konfekt/FastFold'
-Plugin 'unblevable/quick-scope'
-Plugin 'mhinz/vim-startify'
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'kana/vim-textobj-user'
-Plugin 'lucapette/vim-textobj-underscore'
-Plugin 'frioux/vim-regedit'
-Plugin 'frioux/vim-lost'
-Plugin 'wesQ3/wombat.vim'
-Plugin 'wesQ3/vim-windowswap'
-Plugin 'wesQ3/vim-matchit'
+"plugin bundles
+Plug 'tpope/vim-sensible'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'danro/rename.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-vinegar'
+Plug 'tomtom/tcomment_vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-syntastic/syntastic'
+Plug 'vim-perl/vim-perl', {'commit': 'dc137c48e28'}
+Plug 'elzr/vim-json'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'udalov/kotlin-vim'
+Plug 'kergoth/vim-bitbake'
+Plug 'Konfekt/FastFold'
+Plug 'unblevable/quick-scope'
+Plug 'mhinz/vim-startify'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'lucapette/vim-textobj-underscore'
+Plug 'frioux/vim-regedit'
+Plug 'frioux/vim-lost'
+Plug 'wesQ3/wombat.vim'
+Plug 'wesQ3/vim-windowswap'
+Plug 'wesQ3/vim-matchit'
 
-call vundle#end()
-filetype plugin on
-syntax enable
+call plug#end()
 
 colorscheme desert
 if has("gui_running")
@@ -172,7 +169,7 @@ noremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
          \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " deoplete
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = has('nvim') ? 1 : 0
 call deoplete#custom#option({
    \ 'smart_case': v:true,
    \ 'auto_complete_delay': 10,
