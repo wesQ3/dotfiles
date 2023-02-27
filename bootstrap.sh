@@ -12,9 +12,10 @@ if ! dpkg -l | grep -q htop; then
 fi
 
 # generate keys
-if [ ! -e $HOME/.ssh/id_rsa ]; then
+sshkey=$HOME/.ssh/id_rsa
+if [ ! -e $sshkey ]; then
    ssh-keygen -t rsa -b 2048
-   cat ~/.ssh/id_rsa.pub
+   cat $sshkey.pub
    echo "\n\nGive me a GitHub 2FA token to add this to the keylist"
    echo "You'll need your GitHub password as well"
    echo "[blank] to add it yourself...\n\n"
@@ -23,7 +24,7 @@ if [ ! -e $HOME/.ssh/id_rsa ]; then
       curl -i -u wesQ3 \
          -H "X-GitHub-OTP: $otp" \
          -H "Content-Type: application/json" \
-         --data "{\"title\":\"`cat /etc/hostname`-autogen\",\"key\":\"`cat ~/.ssh/id_rsa.pub`\"}" \
+         --data "{\"title\":\"`cat /etc/hostname`-autogen\",\"key\":\"`cat $sshkey.pub`\"}" \
          https://api.github.com/user/keys
    else
       echo Press a key to continue
