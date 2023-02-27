@@ -12,9 +12,9 @@ if ! dpkg -l | grep -q htop; then
 fi
 
 # generate keys
-sshkey=$HOME/.ssh/id_rsa
+sshkey=$HOME/.ssh/id_ed25519
 if [ ! -e $sshkey ]; then
-   ssh-keygen -t rsa -b 2048
+   ssh-keygen -t ed25519
    cat $sshkey.pub
    echo "\n\nGive me a GitHub 2FA token to add this to the keylist"
    echo "You'll need your GitHub password as well"
