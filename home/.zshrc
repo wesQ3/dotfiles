@@ -1,3 +1,11 @@
+maybe_add_path() {
+   if [ -d "$1" ]; then
+      PATH="$1:$PATH"
+   else
+      # echo "skipping path $1, directory does not exist"
+   fi
+}
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM=xterm-256color
@@ -16,7 +24,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+maybe_add_path "$HOME/bin"
+maybe_add_path "$HOME/.local/bin"
+maybe_add_path "$HOME/code/flutter/bin"
+maybe_add_path "/usr/local/go/bin"
 
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
@@ -40,8 +52,3 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-test -d /usr/local/arduino && export ARDUINO_PATH=/usr/local/arduino
-# test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-test -d $HOME/code/flutter/bin && export PATH="$PATH:$HOME/code/flutter/bin"
-
