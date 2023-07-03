@@ -47,6 +47,7 @@ alias tldr='docker run --rm -it -v ~/.local/share/tldr/:/root/.tldr/ nutellinoit
 alias jsony="perl -MJSONY -MJSON -E'print encode_json(JSONY->new->load(shift @ARGV))'"
 alias ag="ag --pager='less -R'"
 alias trim-clipboard="xsel -b | sed 's/  *$//' | xsel -b"
+alias http-dir="plackup -MPlack::App::Directory -e 'Plack::App::Directory->new->to_app'"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
