@@ -86,5 +86,6 @@ sub _parse_args {
       }
    }
 
+   $cmd //= '';
    return \@precmd, $cmd, \@postcmd;
 }
