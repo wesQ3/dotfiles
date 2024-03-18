@@ -19,7 +19,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-vinegar'
 Plug 'tomtom/tcomment_vim'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'justinmk/vim-sneak'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
@@ -184,3 +184,8 @@ let g:dart_style_guide = 2
 "common fugitive cmds
 nnoremap <C-g> :Gsplit :<CR>
 nnoremap <C-b> :G blame<CR>
+
+" sneaking
+let g:sneak#label = 1      " like easymotion
+let g:sneak#use_ic_scs = 1 " smart casing
+let g:sneak#s_next = 1     " hit s to repeat
