@@ -48,6 +48,8 @@ alias jsony="perl -MJSONY -MJSON -E'print encode_json(JSONY->new->load(shift @AR
 alias ag="ag --pager='less -R'"
 alias trim-clipboard="xsel -b | sed 's/  *$//' | xsel -b"
 alias http-dir="plackup -MPlack::App::Directory -e 'Plack::App::Directory->new->to_app'"
+alias sc="systemctl"
+alias scu="systemctl --user"
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
