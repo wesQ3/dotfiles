@@ -32,6 +32,10 @@ if [ ! -e $sshkey ]; then
    fi
 fi
 
+# diff-so-fancy diff viewer
+sudo git clone https://github.com/so-fancy/diff-so-fancy.git /usr/local/diff-so-fancy
+ln -s /usr/local/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
+
 # plenv
 if [ ! -d $HOME/.plenv ]; then
    git clone https://github.com/tokuhirom/plenv.git ~/.plenv
