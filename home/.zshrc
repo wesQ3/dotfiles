@@ -24,7 +24,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 maybe_add_path "$HOME/bin"
 maybe_add_path "$HOME/.local/bin"
 maybe_add_path "$HOME/code/flutter/bin"
