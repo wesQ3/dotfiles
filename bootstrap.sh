@@ -33,8 +33,10 @@ if [ ! -e $sshkey ]; then
 fi
 
 # diff-so-fancy diff viewer
-sudo git clone https://github.com/so-fancy/diff-so-fancy.git /usr/local/diff-so-fancy
-ln -s /usr/local/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
+if [ ! -d /usr/local/diff-so-fancy ]; then
+   sudo git clone https://github.com/so-fancy/diff-so-fancy.git /usr/local/diff-so-fancy
+   sudo ln -s /usr/local/diff-so-fancy/diff-so-fancy /usr/local/bin/diff-so-fancy
+fi
 
 # plenv
 if [ ! -d $HOME/.plenv ]; then
