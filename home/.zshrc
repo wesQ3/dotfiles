@@ -1,3 +1,5 @@
+export TERM=xterm-256color
+
 maybe_add_path() {
    if [ -d "$1" ]; then
       PATH="$1:$PATH"
@@ -6,23 +8,13 @@ maybe_add_path() {
    fi
 }
 
-# Path to your oh-my-zsh installation.
+# oh-my-zsh
 export ZSH=$HOME/.oh-my-zsh
-export TERM=xterm-256color
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="wes"
-
-# ~/.oh-my-zsh/plugins/*
-# ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git docker docker-compose aws)
-
 source $ZSH/oh-my-zsh.sh
-[[ -e $HOME/.local-env.sh ]] && source $HOME/.local-env.sh
 
-# User configuration
+[[ -e $HOME/.local-env.sh ]] && source $HOME/.local-env.sh
 
 maybe_add_path "$HOME/bin"
 maybe_add_path "$HOME/.local/bin"
