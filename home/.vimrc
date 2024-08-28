@@ -23,14 +23,13 @@ Plug 'justinmk/vim-sneak'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-syntastic/syntastic'
-Plug 'vim-perl/vim-perl', {'commit': 'dc137c48e28'}
 Plug 'elzr/vim-json'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'udalov/kotlin-vim'
-Plug 'kergoth/vim-bitbake'
+Plug 'wesQ3/vim-bitbake'
 Plug 'Konfekt/FastFold'
 Plug 'unblevable/quick-scope'
 Plug 'mhinz/vim-startify'
@@ -124,6 +123,7 @@ map n nzz
 " perl
 let perl_fold = 1
 let perl_nofold_packages = 1
+let perl_fold_anonymous_subs = 0
 let perl_sub_signatures = 1
 
 "fix vim thinking the : is part of the object key in js
