@@ -41,10 +41,10 @@ Plug 'frioux/vim-lost'
 Plug 'wesQ3/wombat.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'wesQ3/vim-matchit'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
-colorscheme desert
 if has("gui_running")
    " Remove Toolbar
    set guioptions=i
@@ -63,6 +63,8 @@ if has("gui_running")
    endif
    set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
    set showbreak=↪\ |"that trailing space is intentional
+else
+   colorscheme gruvbox
 endif
 
 set number
