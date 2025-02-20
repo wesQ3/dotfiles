@@ -18,7 +18,6 @@ source $ZSH/oh-my-zsh.sh
 
 maybe_add_path "$HOME/bin"
 maybe_add_path "$HOME/.local/bin"
-maybe_add_path "$HOME/code/flutter/bin"
 maybe_add_path "/usr/local/go/bin"
 
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
