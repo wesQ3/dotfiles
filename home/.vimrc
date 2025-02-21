@@ -107,8 +107,27 @@ endif
 
 " file rifling
 
+function! s:get_git_root(dir)
+  let dir = len(a:dir) ? a:dir : substitute(split(expand('%:p:h'), '[/\\]\.git\([/\\]\|$\)')[0], '^fugitive://', '', '')
+  let root = systemlist('git -C ' . fzf#shellescape(dir) . ' rev-parse --show-toplevel')[0]
+  return v:shell_error ? '' : (len(a:dir) ? fnamemodify(a:dir, ':p') : root)
+endfunction
+
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <Leader>B :FzfBranches<CR>
+" WIP search from git root first, then fall back to cwd
+nnoremap <Leader>F :call fzf#vim#files('~/code/')<CR>
+
+" branch selector
+let s:git_source_cmd = 'git branch --all --sort=-committerdate --color=always | sed -E "s/^[* ]+//"'
+let s:git_preview_cmd = "git describe --always $(echo {1} | sed -E 's#^remotes/##'); echo; git log -n 5 --date=short --color=always --pretty=format:'%C(yellow)%h %Cblue%>(7)%cN %Cgreen%cd%Creset %s' $(echo {1} | sed -E 's#^remotes/##')"
+
+command! -bang FzfBranches call fzf#run(fzf#wrap({
+  \ 'source': s:git_source_cmd,
+  \ 'sink': 'Git checkout',
+  \ 'options': '--ansi --preview "' . s:git_preview_cmd . '"'
+  \}))
 
 let g:current_plenv_ver = system("ls -1 ~/.plenv/versions | sort --reverse | head -1 | tr -d '\n'")
 if !v:shell_error && g:current_plenv_ver
