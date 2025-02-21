@@ -40,7 +40,7 @@ Plug 'frioux/vim-lost'
 Plug 'wesQ3/wombat.vim'
 Plug 'wesQ3/vim-windowswap'
 Plug 'wesQ3/vim-matchit'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
 
@@ -63,6 +63,7 @@ if has("gui_running")
    set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
    set showbreak=↪\ |"that trailing space is intentional
 else
+   set termguicolors
    colorscheme gruvbox
 endif
 
