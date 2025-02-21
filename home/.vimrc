@@ -27,7 +27,6 @@ Plug 'elzr/vim-json'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'udalov/kotlin-vim'
 Plug 'wesQ3/vim-bitbake'
 Plug 'Konfekt/FastFold'
@@ -198,9 +197,6 @@ call deoplete#custom#option({
 
 "syntastic
 let g:syntastic_python_checkers = ['python3']
-
-" dart / flutter
-let g:dart_style_guide = 2
 
 "common fugitive cmds
 nnoremap <C-g> :Gsplit :<CR>
