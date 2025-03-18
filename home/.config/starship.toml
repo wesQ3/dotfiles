@@ -1,0 +1,52 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
+
+[username]
+format="[$user]($style)"
+
+[hostname]
+format="@[$hostname]($style) "
+
+[directory]
+truncation_length = 0
+style = "green"
+
+[character]
+success_symbol = "[❯](grey)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+style = "bright-yellow"
+
+[git_commit]
+style = "bright-green"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](yellow) ($ahead_behind$stashed)]($style) "
+style = "bright-green"
+# conflicted = "​"
+# untracked = "​"
+# modified = "​"
+# staged = "​"
+# renamed = "​"
+# deleted = "​"
+stashed = "​"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bright-gray"
