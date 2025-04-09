@@ -33,14 +33,14 @@ style = "bright-yellow"
 style = "bright-green"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](yellow) ($ahead_behind$stashed)]($style) "
+format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](red) ($ahead_behind$stashed)]($style) "
 style = "bright-green"
 # conflicted = "​"
 # untracked = "​"
 # modified = "​"
 # staged = "​"
 # renamed = "​"
-# deleted = "​"
+deleted = "x"
 stashed = "​"
 
 [git_state]
