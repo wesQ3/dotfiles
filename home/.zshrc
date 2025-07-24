@@ -34,6 +34,16 @@ zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-d
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
 
+# Paste and URL quoting
+autoload -Uz is-at-least
+if is-at-least 5.1; then
+   autoload -Uz bracketed-paste-magic
+   zle -N bracketed-paste bracketed-paste-magic
+fi
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
+
+# paths
 maybe_add_path "$HOME/bin"
 maybe_add_path "$HOME/.local/bin"
 maybe_add_path "/usr/local/go/bin"
@@ -72,6 +82,9 @@ alias trim-clipboard="xsel -b | sed 's/  *$//' | xsel -b"
 alias http-dir="plackup -MPlack::App::Directory -e 'Plack::App::Directory->new->to_app'"
 alias sc="systemctl"
 alias scu="systemctl --user"
+alias jc="journalctl"
+alias jcu="journalctl --user"
+alias gsu='git submodule update'
 
 # ohmyzsh/lib/directories.zsh
 
@@ -139,6 +152,12 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
 command -v fzf > /dev/null && source <(fzf --zsh)
+
+# use aws completions if installed - ohmyzsh/plugins/aws
+if command -v aws_completer &> /dev/null; then
+  autoload -Uz bashcompinit && bashcompinit
+  complete -C aws_completer aws
+fi
 
 # .config/starship.toml
 eval "$(starship init zsh)"
