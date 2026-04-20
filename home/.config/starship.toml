@@ -6,6 +6,7 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+$aws\
 $cmd_duration\
 $line_break\
 $character"""
@@ -17,6 +18,8 @@ format="[$user]($style)"
 format="@[$hostname]($style) "
 
 [directory]
+format='[$read_only]($read_only_style)[$path]($style) '
+read_only='#'
 truncation_length = 0
 style = "green"
 
@@ -50,3 +53,8 @@ style = "bright-black"
 [cmd_duration]
 format = "[$duration]($style) "
 style = "bright-gray"
+
+[aws]
+symbol = " "
+format = " [aws](italic) [$symbol$profile]($style) "
+style = "#af5f00"
