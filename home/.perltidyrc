@@ -1,0 +1,10 @@
+-i=3     # indent level = 3 spaces
+-bar     # opening brace always on right (K&R style)
+-ce      # cuddle else (} else {)
+-sot     # stack opening tokens
+-sct     # stack closing tokens
+-pt=2    # paren tightness = 2 (tight, no spaces inside parens)
+-sbt=2   # square bracket tightness = 2
+-bt=2    # brace tightness = 2
+-nolq    # do not outdent long quoted strings
+-nasc    # do not add semicolons to code blocks
