@@ -14,7 +14,7 @@ autoload -U compinit; compinit
 zstyle ':completion:*' completer _extensions _complete _approximate
 # Use cache for commands using cache
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+zstyle ':completion:*' cache-path "$HOME/.cache/zsh/.zcompcache"
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 # select in menu with arrow keys
 zstyle ':completion:*' menu select
@@ -51,18 +51,26 @@ maybe_add_path "$HOME/.fzf/bin"
 maybe_add_path "$HOME/.cargo/bin"
 
 # zsh vim mode
-bindkey -v
-export KEYTIMEOUT=5
+zsh_plugins_dir="$HOME/.config/zsh/bundle"
+if [ -d "$zsh_plugins_dir/zsh-vi-mode" ]; then
+   source "$zsh_plugins_dir/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+   # fix prefix history GH#148
+   zvm_after_init_commands+=("bindkey '^[[A' up-line-or-beginning-search" "bindkey '^[[B' down-line-or-beginning-search")
+else
+   # echo "skipping path $1, directory does not exist"
+   bindkey -v
+   export KEYTIMEOUT=2
 
-# tpope surround
-autoload -Uz surround
-zle -N delete-surround surround
-zle -N add-surround surround
-zle -N change-surround surround
-bindkey -M vicmd cs change-surround
-bindkey -M vicmd ds delete-surround
-bindkey -M vicmd ys add-surround
-bindkey -M visual S add-surround
+   # tpope surround
+   autoload -Uz surround
+   zle -N delete-surround surround
+   zle -N add-surround surround
+   zle -N change-surround surround
+   bindkey -M vicmd cs change-surround
+   bindkey -M vicmd ds delete-surround
+   bindkey -M vicmd ys add-surround
+   bindkey -M visual S add-surround
+fi
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -82,9 +90,12 @@ alias trim-clipboard="xsel -b | sed 's/  *$//' | xsel -b"
 alias http-dir="plackup -MPlack::App::Directory -e 'Plack::App::Directory->new->to_app'"
 alias sc="systemctl"
 alias scu="systemctl --user"
-alias jc="journalctl"
-alias jcu="journalctl --user"
+alias jc="journalctl --no-hostname"
+alias jcu="journalctl --user --no-hostname"
 alias gsu='git submodule update'
+alias grbc='git rebase --continue'
+alias grba='git rebase --abort'
+alias zinflate='perl -MCompress::Raw::Zlib -e "undef \$/; my \$d; my (\$i,\$s)=Compress::Raw::Zlib::Inflate->new(-WindowBits=>-15); \$s=\$i->inflate(scalar <STDIN>,\$d); print \$d"'
 
 # ohmyzsh/lib/directories.zsh
 
@@ -158,6 +169,11 @@ if command -v aws_completer &> /dev/null; then
   autoload -Uz bashcompinit && bashcompinit
   complete -C aws_completer aws
 fi
+
+# fugitive status
+fit() {
+  nvim -c "execute 'edit ' .. FugitiveFind(':')"
+}
 
 # .config/starship.toml
 eval "$(starship init zsh)"
