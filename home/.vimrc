@@ -64,8 +64,11 @@ if has("gui_running")
    set showbreak=↪\ |"that trailing space is intentional
 else
    set termguicolors
-   colorscheme gruvbox
+   colorscheme wombat
 endif
+
+" always recursive folding
+nnoremap za zA
 
 set number
 set mouse=a
