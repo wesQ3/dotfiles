@@ -116,12 +116,13 @@ endfunction
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>B :FzfBranches<CR>
+nnoremap <Leader>l :Lines<CR>
 " WIP search from git root first, then fall back to cwd
 nnoremap <Leader>F :call fzf#vim#files('~/code/')<CR>
 
 " branch selector
 let s:git_source_cmd = 'git branch --all --sort=-committerdate --color=always | sed -E "s/^[* ]+//"'
-let s:git_preview_cmd = "git describe --always $(echo {1} | sed -E 's#^remotes/##'); echo; git log -n 5 --date=short --color=always --pretty=format:'%C(yellow)%h %Cblue%>(7)%cN %Cgreen%cd%Creset %s' $(echo {1} | sed -E 's#^remotes/##')"
+let s:git_preview_cmd = "git describe --always $(echo {1} | sed -E 's#^remotes/##'); echo; git log -n 10 --date=short --color=always --pretty=format:'%C(yellow)%h %Cblue%>(7)%cN %Cgreen%cd%Creset %s' $(echo {1} | sed -E 's#^remotes/##')"
 
 command! -bang FzfBranches call fzf#run(fzf#wrap({
   \ 'source': s:git_source_cmd,
